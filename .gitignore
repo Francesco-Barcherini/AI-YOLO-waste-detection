@@ -196,3 +196,8 @@ cython_debug/
 datasets/
 src/training/*.pt
 src/training/runs
+
+models/
+
+*.pt
+runs/
