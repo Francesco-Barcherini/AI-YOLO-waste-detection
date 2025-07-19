@@ -201,3 +201,6 @@ models/
 
 *.pt
 runs/
+
+output/
+test_results/
