@@ -27,7 +27,7 @@
 ```
 
 ### datasets/
-The `datasets/` folder contains all relevant datasets, both raw and processed.
+The `datasets/` folder contains all relevant datasets, both raw and processed. The repo contains only a README file to download the processed datasets if you want to skip the data processing steps.
 
 > [!IMPORTANT]
 > Before getting started, you must download the official `TACO` dataset by cloning the TACO repository with the following command:
@@ -77,3 +77,5 @@ pip install -r requirements.txt
 7. **test models**: you can test the models performance (average mAP@50 on all folds when present) on the original test set (`datasets/roboflow/test`) by running all cells of `src/inference/test.ipynb`.
 
 8. **cluster the objects and compute the cluster metrics**: you can cluster the objects in the test set or predicted by the model, and compute the cluster mAP@50 by running all cells of `src/inference/cluster_objects.ipynb`.
+
+9. **visualize the results**: you can visualize the predicted bounding boxes and the clusters by running `src/data_processing/data_visualization.ipynb`. Inside you must specify the source of the images and of the labels (predicted or clustered) and the path to the model weights.
