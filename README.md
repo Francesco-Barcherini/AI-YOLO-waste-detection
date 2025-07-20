@@ -60,7 +60,8 @@ pip install -r requirements.txt
 
 2. **download the dataset**: get an API key from Roboflow site and write it into a `.env` in the **root directory** of the project and run all cells of `src/data_processing/download_dataset.ipynb`.
 
-> [!NOTE] The `.env` file must have the following format:
+> [!NOTE] 
+> The `.env` file must have the following format:
 > ```yaml
 > API_KEY=your_api_jey
 > ```
