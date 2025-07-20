@@ -200,7 +200,8 @@ src/training/runs
 models/
 
 *.pt
-runs/
 
+src/inference/runs
+predict/
 output/
 test_results/
