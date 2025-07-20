@@ -58,7 +58,7 @@ It includes three main subdirectories: `data_processing/` with scripts for **dow
 pip install -r requirements.txt
 ```
 
-2. **download the dataset**: get an API key from Roboflow site and write it into a `.env` in the **root directory** of the project and run all cells of `src/data_processing/download_dataset.ipynb`.
+2. **download the dataset**: get an API key from Roboflow site and write it into a `.env` in the **root directory** of the project and run all cells of `src/data_processing/download_dataset.ipynb`. After downloading it run all cells of `src/data_processing/roboflow_remap.ipynb`.
 
 > [!NOTE] 
 > The `.env` file must have the following format:
@@ -68,10 +68,12 @@ pip install -r requirements.txt
 
 3. **create the folds for cross validation**: run all the cells of `src/data_processing/fold_generation.ipynb`
 
-4. **augment the folds' training sets**: if you wish to augment the training sets of each fold, as described in the original paper, you can do it by running all the cells of `src/data_processing/roboflow_augmnetation.ipynb`
+4. **augment the folds' training sets**: if you wish to augment the training sets of each fold, as described in the original paper, you can do it by running all the cells of `src/data_processing/object_bank_generation.ipynb` in order to create the **object bank** and then run all the cells of `src/data_processing/roboflow_augmentation.ipynb`
 
 5. **subsample the folds**: at this point each fold should contain a train set of roughly 27000 images with a uniform distribution of all the classes. In order to **avoid overfitting** and **prohibitive training times** we used a pretrained YOLO and RT-DETR and **subsampled** the training sets to 10000 images each. If you wish to subsample the training sets of each fold you can do it by running all the cells of `src/data_processing/roboflow_sampling.ipynb`
 
 6. **train models**: once you have all the folders you can run the same training pipeline, as described in the original paper, by running all the cells of `src/training/training_pipeline.ipynb` otherwise you can train a single model for testing with `src/training/training.ipynb`.
 
 7. **test models**: you can test the models performance (average mAP@50 on all folds when present) on the original test set (`datasets/roboflow/test`) by running all cells of `src/inference/test.ipynb`.
+
+8. **cluster the objects and compute the cluster metrics**: you can cluster the objects in the test set or predicted by the model, and compute the cluster mAP@50 by running all cells of `src/inference/cluster_objects.ipynb`.
